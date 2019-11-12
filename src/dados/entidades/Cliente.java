@@ -12,24 +12,32 @@ public class Cliente {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idCliente;
-    
+    private Integer idCliente; 
     private String nome;
-    
-//Construtor vazio da JPA (OBRIGATÓRIO)
-    public Cliente(){}
-    
-    //Construtor
-    public Cliente(String n){
-        this.setNome(n);
-    }
-    
     private String cpf;
     private LocalDate data_nascimento;
     private  String endereco;
     private  String cidade;
     private  String bairro;
     private  String telefone;
+    
+//Construtor vazio da JPA (OBRIGATÓRIO)
+    public Cliente(){}
+    
+    //Construtor
+
+    public Cliente(String nome, String cpf, LocalDate data_nascimento,
+            String endereco, String cidade, String bairro, String telefone) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.data_nascimento = data_nascimento;
+        this.endereco = endereco;
+        this.cidade = cidade;
+        this.bairro = bairro;
+        this.telefone = telefone;
+    }
+    
+    
 
     public String getTelefone() {
         return telefone;

@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ui.cliente;
 
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import dados.entidades.Cliente;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -54,19 +50,19 @@ public class JanelaClienteController implements Initializable {
     @FXML
     private TableView<Cliente> tabela;
     @FXML
-    private TableColumn<?, ?> colId;
+    private TableColumn colId;
     @FXML
-    private TableColumn<?, ?> colNome;
+    private TableColumn colNome;
     @FXML
-    private TableColumn<?, ?> colDataNasc;
+    private TableColumn colDataNasc;
     @FXML
-    private TableColumn<?, ?> colTelefone;
+    private TableColumn colTelefone;
     @FXML
-    private TableColumn<?, ?> colCPF;
+    private TableColumn colCPF;
     @FXML
-    private TableColumn<?, ?> colEndereco;
+    private TableColumn colEndereco;
     @FXML
-    private TableColumn<?, ?> colBairro;
+    private TableColumn colBairro;
     
     //Atributo que representa os dados para tabela
     private ObservableList<Cliente> dados
@@ -94,7 +90,13 @@ public class JanelaClienteController implements Initializable {
         if(textFieldId.getText().isEmpty()){ //inserindo
             //Pega os dados do fomulário
             //e cria um objeto cliente
-            Cliente a = new Cliente(textFieldNome.getText());
+            Cliente a = new Cliente(textFieldNome.getText(),
+                    textFieldCPF.getText(),
+                    datePickerNascimento.getValue(),
+                    textFieldEndereco.getText(),
+                    textFieldCidade.getText(),
+                    textFieldBairro.getText(),
+                    textFieldTelefone.getText());
 
             //Mandar o cliente para a camada de servico
             servico.salvar(a);
