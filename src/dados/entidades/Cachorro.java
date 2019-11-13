@@ -5,11 +5,18 @@
  */
 package dados.entidades;
 
+import java.util.Objects;
+import javax.persistence.*;
+
 /**
  *
  * @author IFNMG
  */
+@Entity
 public class Cachorro{
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer  idCachorro;
     private String raça;
     private String nome;
@@ -82,5 +89,31 @@ public class Cachorro{
     public void setDono(Cliente dono) {
         this.dono = dono;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 59 * hash + Objects.hashCode(this.idCachorro);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Cachorro other = (Cachorro) obj;
+        if (!Objects.equals(this.idCachorro, other.idCachorro)) {
+            return false;
+        }
+        return true;
+    }
+
 
 }
