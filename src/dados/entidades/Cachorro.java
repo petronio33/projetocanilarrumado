@@ -5,6 +5,8 @@
  */
 package dados.entidades;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.*;
 
@@ -15,7 +17,7 @@ import javax.persistence.*;
 @Entity
 public class Cachorro{
     
-    @Id
+   @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer  idCachorro;
     private String raça;
@@ -24,7 +26,17 @@ public class Cachorro{
     private String sexo;
     private String ração;
     private String observacao;
-    private Cliente dono;
+    
+    @ManyToMany
+    private List<Cliente> dono =new ArrayList<Cliente>();
+
+    public List<Cliente> getDono() {
+        return dono;
+    }
+
+    public void setDono(List<Cliente> dono) {
+        this.dono = dono;
+    }
 
     public Integer getIdCachorro() {
         return idCachorro;
@@ -82,13 +94,7 @@ public class Cachorro{
         this.observacao = observacao;
     }
 
-    public Cliente getDono() {
-        return dono;
-    }
-
-    public void setDono(Cliente dono) {
-        this.dono = dono;
-    }
+ 
 
     @Override
     public int hashCode() {

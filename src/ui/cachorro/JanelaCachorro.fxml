@@ -1,30 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.cachorro.JanelaCachorroController">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.cachorro.JanelaCachorroController">
    <children>
-      <JFXTextField fx:id="idCachorro" editable="false" labelFloat="true" layoutX="25.0" layoutY="21.0" prefHeight="25.0" prefWidth="78.0" promptText="Id:" />
-      <JFXTextField fx:id="idNomeCachorro" editable="false" labelFloat="true" layoutX="140.0" layoutY="21.0" prefHeight="25.0" prefWidth="182.0" promptText="Nome:" />
-      <JFXTextField fx:id="idNomeCachorro1" editable="false" labelFloat="true" layoutX="46.0" layoutY="68.0" prefHeight="25.0" prefWidth="115.0" promptText="Raça:" />
-      <JFXTextField fx:id="idNomeCachorro11" editable="false" labelFloat="true" layoutX="231.0" layoutY="68.0" prefHeight="25.0" prefWidth="91.0" promptText="Porte:" />
-      <JFXTextField fx:id="idNomeCachorro111" editable="false" labelFloat="true" layoutX="414.0" layoutY="68.0" prefHeight="25.0" prefWidth="91.0" promptText="Sexo:" />
-      <JFXTextField fx:id="idNomeCachorro1111" editable="false" labelFloat="true" layoutX="368.0" layoutY="21.0" prefHeight="25.0" prefWidth="182.0" promptText="Dono:" />
-      <JFXTextField fx:id="idNomeCachorro1113" alignment="BOTTOM_LEFT" editable="false" labelFloat="true" layoutX="31.0" layoutY="125.0" prefHeight="67.0" prefWidth="547.0" promptText="Observação:" />
-      <Separator layoutX="7.0" layoutY="210.0" prefHeight="5.0" prefWidth="587.0" />
-      <TableView layoutX="25.0" layoutY="227.0" prefHeight="155.0" prefWidth="558.0">
+      <JFXTextField fx:id="textFieldId" editable="false" labelFloat="true" layoutX="25.0" layoutY="21.0" prefHeight="25.0" prefWidth="78.0" promptText="Id:" />
+      <JFXTextField fx:id="textFieldNome" labelFloat="true" layoutX="140.0" layoutY="21.0" prefHeight="25.0" prefWidth="182.0" promptText="Nome:" />
+      <JFXTextField fx:id="textFieldRaca" labelFloat="true" layoutX="25.0" layoutY="68.0" prefHeight="25.0" prefWidth="115.0" promptText="Raça:" />
+      <JFXTextField fx:id="textFieldObservacao" alignment="BOTTOM_LEFT" labelFloat="true" layoutX="25.0" layoutY="129.0" prefHeight="67.0" prefWidth="547.0" promptText="Observação:" />
+      <Separator layoutX="7.0" layoutY="213.0" prefHeight="2.0" prefWidth="788.0" />
+      <TableView fx:id="tabela" layoutX="7.0" layoutY="227.0" prefHeight="409.0" prefWidth="788.0">
         <columns>
-          <TableColumn prefWidth="61.0" text="Id:" />
-          <TableColumn prefWidth="115.0" text="Nome:" />
-            <TableColumn prefWidth="155.0" text="Dono:" />
-            <TableColumn minWidth="5.0" prefWidth="58.0" text="Raça" />
-            <TableColumn prefWidth="75.0" text="Porte" />
-            <TableColumn prefWidth="93.0" text="Sexo:" />
+          <TableColumn fx:id="colId" prefWidth="61.0" text="Id:" />
+          <TableColumn fx:id="colNome" prefWidth="115.0" text="Nome:" />
+            <TableColumn fx:id="colDono" prefWidth="155.0" text="Dono:" />
+            <TableColumn fx:id="colRaca" minWidth="5.0" prefWidth="58.0" text="Raça" />
+            <TableColumn fx:id="colPorte" prefWidth="75.0" text="Porte" />
+            <TableColumn fx:id="colSexo" prefWidth="93.0" text="Sexo:" />
+            <TableColumn fx:id="colObservacao" prefWidth="230.0" text="Obsercação:" />
         </columns>
       </TableView>
+      <JFXButton layoutX="593.0" layoutY="175.0" onAction="#salvar" text="Salvar">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton layoutX="659.0" layoutY="175.0" onAction="#editar" text="Editar">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton layoutX="721.0" layoutY="175.0" onAction="#excluir" text="Excluir">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXComboBox fx:id="comboBoxDono" layoutX="368.0" layoutY="21.0" prefHeight="25.0" prefWidth="204.0" promptText="Dono:" />
+      <JFXComboBox fx:id="comboBoxSexo" layoutX="325.0" layoutY="68.0" prefHeight="25.0" prefWidth="151.0" promptText="Sexo:" />
+      <JFXComboBox fx:id="comboBoxPorte" layoutX="156.0" layoutY="68.0" prefHeight="25.0" prefWidth="151.0" promptText="Porte:" />
    </children>
 </AnchorPane>
