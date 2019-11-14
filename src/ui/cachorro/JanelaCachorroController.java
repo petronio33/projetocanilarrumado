@@ -13,8 +13,10 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import servicos.CachorroServico;
 
 /**
  * FXML Controller class
@@ -54,6 +56,8 @@ public class JanelaCachorroController implements Initializable {
     @FXML
     private JFXComboBox<?> comboBoxPorte;
 
+    private CachorroServico servico = new CachorroServico();
+    
     /**
      * Initializes the controller class.
      */
@@ -64,6 +68,16 @@ public class JanelaCachorroController implements Initializable {
 
     @FXML
     private void salvar(ActionEvent event) {
+    Cachorro c = new Cachorro(textFieldNome.getText());
+    
+    servico.salvar(c);
+    
+    mensagemsucesso("Cachorro salvo com sucesso");
+    
+   
+    textFieldNome.setText(" ");
+    
+    
     }
 
     @FXML
@@ -74,4 +88,13 @@ public class JanelaCachorroController implements Initializable {
     private void excluir(ActionEvent event) {
     }
     
+    
+    public void mensagemsucesso(String mes){
+     Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+        alerta.setTitle("SUCESSO!"); 
+        alerta.setHeaderText(null); 
+        alerta.setContentText(mes);
+        alerta.showAndWait(); 
+    
+    }
 }

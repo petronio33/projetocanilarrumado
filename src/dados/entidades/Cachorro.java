@@ -27,6 +27,12 @@ public class Cachorro{
     private String ração;
     private String observacao;
     
+    public Cachorro(){}
+    
+    public Cachorro (String n){
+        this.setNome(nome);
+    }
+            
     @ManyToMany
     private List<Cliente> dono =new ArrayList<Cliente>();
 
