@@ -24,13 +24,19 @@ public class Cachorro{
     private String nome;
     private String porte;
     private String sexo;
-    private String ração;
     private String observacao;
-    
+
+    //jpa
     public Cachorro(){}
     
-    public Cachorro (String n){
+    
+    public Cachorro (String nome, String raça, String obs ){
         this.setNome(nome);
+        this.setRaça(raça);
+        this.setObservacao(obs);
+        
+       
+        
     }
             
     @ManyToMany
@@ -82,14 +88,6 @@ public class Cachorro{
 
     public void setSexo(String sexo) {
         this.sexo = sexo;
-    }
-
-    public String getRação() {
-        return ração;
-    }
-
-    public void setRação(String ração) {
-        this.ração = ração;
     }
 
     public String getObservacao() {

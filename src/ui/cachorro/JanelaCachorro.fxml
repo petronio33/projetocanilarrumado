@@ -24,7 +24,7 @@
             <TableColumn fx:id="colRaca" minWidth="5.0" prefWidth="58.0" text="Raça" />
             <TableColumn fx:id="colPorte" prefWidth="75.0" text="Porte" />
             <TableColumn fx:id="colSexo" prefWidth="93.0" text="Sexo:" />
-            <TableColumn fx:id="colObservacao" prefWidth="230.0" text="Obsercação:" />
+            <TableColumn fx:id="colObservacao" prefWidth="230.0" text="Observação:" />
         </columns>
       </TableView>
       <JFXButton layoutX="593.0" layoutY="175.0" onAction="#salvar" text="Salvar">

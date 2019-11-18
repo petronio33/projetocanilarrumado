@@ -10,6 +10,7 @@ public class CachorroDAO {
     
     /**
      * Salvar o Cachorro no BD
+     * @param c
      */
     public void salvar(Cachorro c) {
 
@@ -68,6 +69,7 @@ public class CachorroDAO {
     
     /**
      * Exclui o Cachorro do BD
+     * @param c
      */
     public void excluir(Cachorro c){
         
