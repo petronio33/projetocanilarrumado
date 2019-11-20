@@ -119,6 +119,10 @@ public class JanelaClienteController implements Initializable {
                 //Pegar os novos dados do formulário e
                 //atualizar o meu cliente
                 selecionado.setNome(textFieldNome.getText());
+                selecionado.setBairro(textFieldBairro.getText());
+                selecionado.setCidade(textFieldCidade.getText());
+                selecionado.setCpf(textFieldCPF.getText());
+                datePickerNascimento.getValue();
                 
                 //Mandando pra camada de serviço salvar as alterações
                 servico.editar(selecionado);
@@ -236,6 +240,7 @@ public class JanelaClienteController implements Initializable {
             textFieldTelefone.setText(selecionado.getTelefone());
         }else{ //não tem cliente selecionado na tabela
             mensagemErro("Selecione um cliente!");
+         listarClientesTabela();
         }
 
     }

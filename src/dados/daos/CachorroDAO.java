@@ -91,4 +91,24 @@ public class CachorroDAO {
         gerenciador.getTransaction().commit();
         
     }
+    
+    public List<Cachorro> buscarpelonome(String nomec){
+         
+        
+//Pegando o gerenciador de acesso ao BD
+        EntityManager gerenciador = JPAUtil.getGerenciador();
+
+       
+       TypedQuery<Cachorro> consulta = gerenciador.createQuery(
+            "Select a from Cachorro a where a.nome  like :nome ", 
+            Cachorro.class);
+        //substituindo o parametro :nome pelo valor da variavel nomec
+               
+            consulta.setParameter("nome",  nomec + "%");
+              
+            return consulta.getResultList();
+    }
+        
+    
+    
 }

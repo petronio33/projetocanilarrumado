@@ -5,6 +5,7 @@
  */
 package ui.cachorro;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import dados.entidades.Cachorro;
@@ -63,116 +64,119 @@ public class JanelaCachorroController implements Initializable {
     private JFXComboBox<?> comboBoxPorte;
 
     private CachorroServico servico = new CachorroServico();
-    
-    private ObservableList<Cachorro> dados =
-            FXCollections.observableArrayList();
-    
+
+    private ObservableList<Cachorro> dados
+            = FXCollections.observableArrayList();
+
     private Cachorro selecionado;
- 
+    @FXML
+    private JFXButton botaopesquisar;
+    @FXML
+    private JFXTextField pesquisanome;
+
     /**
      * Initializes the controller class.
      *
      */
-    public void mensagemDeErro(String MDE){
-    Alert cuidado = new Alert(Alert.AlertType.ERROR);
+    public void mensagemDeErro(String MDE) {
+        Alert cuidado = new Alert(Alert.AlertType.ERROR);
         cuidado.setTitle("Erro!");
         cuidado.setHeaderText(null);
         cuidado.setContentText(MDE);
         cuidado.showAndWait();
-    
-     
-    
+
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         configurarTabela();
         listarCachorroTabela();
-    }    
+    }
 
     @FXML
     private void salvar(ActionEvent event) {
-    
-       if (textFieldId.getText().isEmpty()){
-        Cachorro c = new Cachorro(
-            textFieldNome.getText(),
-            textFieldRaca.getText(),
-            textFieldObservacao.getText());
-    
-    
-    servico.salvar(c);
-    
-    mensagemsucesso("Cachorro salvo com sucesso");
-    
-   listarCachorroTabela();
- 
-       }else{
-           
-           Optional<ButtonType> btn = 
-                mensagemDeConfirmacao("Deseja efetuar as alterações?",
-                      "Editar");
-       if (btn.get()==ButtonType.OK){
-       selecionado.setNome(textFieldNome.getText());
-       
-       servico.editar(selecionado);
-       
-           mensagemsucesso("Cachorro Atualizado!");
-           listarCachorroTabela();
-       
-       }
-       }
-    textFieldNome.setText(" ");
-    textFieldRaca.setText(" ");
-    textFieldObservacao.setText(" ");
+
+        if (textFieldId.getText().isEmpty()) {
+            Cachorro c = new Cachorro(
+                    textFieldNome.getText(),
+                    textFieldRaca.getText(),
+                    textFieldObservacao.getText());
+
+            servico.salvar(c);
+
+            mensagemsucesso("Cachorro salvo com sucesso");
+
+            listarCachorroTabela();
+
+        } else {
+
+            Optional<ButtonType> btn
+                    = mensagemDeConfirmacao("Deseja efetuar as alterações?",
+                            "Editar");
+            if (btn.get() == ButtonType.OK) {
+                
+                selecionado.setNome(textFieldNome.getText());
+                selecionado.setRaça(textFieldRaca.getText());
+                selecionado.setObservacao(textFieldObservacao.getText());
+
+                servico.editar(selecionado);
+
+                mensagemsucesso("Cachorro Atualizado!");
+                listarCachorroTabela();
+
+            }
+        }
+        textFieldNome.setText(" ");
+        textFieldRaca.setText(" ");
+        textFieldObservacao.setText(" ");
     }
 
     @FXML
     private void editar(ActionEvent event) {
-    selecionado =tabela.getSelectionModel().getSelectedItem();
-    if(selecionado!= null){
-    textFieldId.setText(
-    String.valueOf( selecionado.getIdCachorro()));
-    textFieldNome.setText( selecionado.getNome() );
-    textFieldRaca.setText(selecionado.getRaça());
-    textFieldObservacao.setText(selecionado.getObservacao());
-    }else{
-        mensagemDeErro("Selecione um Cachorro!");
+        selecionado = tabela.getSelectionModel().getSelectedItem();
+        if (selecionado != null) {
+            textFieldId.setText(
+                    String.valueOf(selecionado.getIdCachorro()));
+            textFieldNome.setText(selecionado.getNome());
+            textFieldRaca.setText(selecionado.getRaça());
+            textFieldObservacao.setText(selecionado.getObservacao());
+            ///listarCachorroTabela();
+        } else {
+            mensagemDeErro("Selecione um Cachorro!");
+
+        }
+
     }
-    
-}
 
     @FXML
     private void excluir(ActionEvent event) {
-    selecionado = tabela.getSelectionModel().getSelectedItem();
-    
-    if (selecionado != null){
-    
-       Optional<ButtonType> btn =mensagemDeConfirmacao("Deseja excluir o cachorro?",
-               "Excluido");
-    if(btn.get()==ButtonType.OK){
-    servico.excluir(selecionado);
-    
-        mensagemsucesso("Cachorro apagado!");
-        
-        listarCachorroTabela();
-    
-    } 
-        
+        selecionado = tabela.getSelectionModel().getSelectedItem();
+
+        if (selecionado != null) {
+
+            Optional<ButtonType> btn = mensagemDeConfirmacao("Deseja excluir o cachorro?",
+                    "Excluido");
+            if (btn.get() == ButtonType.OK) {
+                servico.excluir(selecionado);
+
+                mensagemsucesso("Cachorro apagado!");
+
+                listarCachorroTabela();
+
+            }
+            listarCachorroTabela();
+        }
+
     }
-    
-    
-    
-    }
-    
-    
-    public void mensagemsucesso(String mes){
-     Alert alerta = new Alert(Alert.AlertType.INFORMATION);
-        alerta.setTitle("Sucesso!"); 
-        alerta.setHeaderText(null); 
+
+    public void mensagemsucesso(String mes) {
+        Alert alerta = new Alert(Alert.AlertType.INFORMATION);
+        alerta.setTitle("Sucesso!");
+        alerta.setHeaderText(null);
         alerta.setContentText(mes);
-        alerta.showAndWait(); 
-    
+        alerta.showAndWait();
+
     }
 
     private void configurarTabela() {
@@ -187,22 +191,31 @@ public class JanelaCachorroController implements Initializable {
     }
 
     private void listarCachorroTabela() {
-        
+
         dados.clear();
 
-        
-        List<Cachorro> atores = servico.listar();
-        dados = FXCollections.observableArrayList(atores);
+        List<Cachorro> cachorros = servico.listar();
+        dados = FXCollections.observableArrayList(cachorros);
 
-        
         tabela.setItems(dados);
     }
 
     private Optional<ButtonType> mensagemDeConfirmacao(String mensagem, String titulo) {
-       Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle(titulo);
         alert.setHeaderText(null);
         alert.setContentText(mensagem);
         return alert.showAndWait();
+    }
+
+    @FXML
+    private void pesquisar(ActionEvent event) {
+        dados.clear();
+        String nome = pesquisanome.getText();
+
+        List<Cachorro> cachorros = servico.buscarPeloNome(nome);
+        dados = FXCollections.observableArrayList(cachorros);
+
+        tabela.setItems(dados);
     }
 }

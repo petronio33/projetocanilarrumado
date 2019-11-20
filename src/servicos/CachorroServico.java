@@ -59,6 +59,15 @@ public class CachorroServico {
         //Mandar para a DAO excluir
         dao.excluir(c);
     }
+
+    public List<Cachorro> buscarPeloNome (String nomec){
+   
+        
+        
+        return dao.buscarpelonome(nomec);
+    
+    
+    }
 }
 
    
