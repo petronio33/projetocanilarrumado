@@ -13,7 +13,7 @@
    <children>
       <JFXTextField fx:id="textFieldId" editable="false" labelFloat="true" layoutX="25.0" layoutY="21.0" prefHeight="25.0" prefWidth="78.0" promptText="Id:" />
       <JFXTextField fx:id="textFieldNome" labelFloat="true" layoutX="140.0" layoutY="21.0" prefHeight="25.0" prefWidth="182.0" promptText="Nome:" />
-      <JFXTextField fx:id="textFieldRaca" labelFloat="true" layoutX="25.0" layoutY="68.0" prefHeight="25.0" prefWidth="115.0" promptText="Raça:" />
+      <JFXTextField fx:id="textFieldRaca" labelFloat="true" layoutX="25.0" layoutY="68.0" prefHeight="25.0" prefWidth="115.0" promptText="raca:" />
       <JFXTextField fx:id="textFieldObservacao" alignment="BOTTOM_LEFT" labelFloat="true" layoutX="25.0" layoutY="158.0" prefHeight="38.0" prefWidth="529.0" promptText="Observação:" />
       <Separator layoutX="7.0" layoutY="213.0" prefHeight="2.0" prefWidth="788.0" />
       <TableView fx:id="tabela" layoutX="7.0" layoutY="227.0" prefHeight="409.0" prefWidth="788.0">
@@ -21,8 +21,8 @@
           <TableColumn fx:id="colId" prefWidth="61.0" text="Id:" />
           <TableColumn fx:id="colNome" prefWidth="115.0" text="Nome:" />
             <TableColumn fx:id="colDono" prefWidth="155.0" text="Dono:" />
-            <TableColumn fx:id="colRaca" minWidth="5.0" prefWidth="58.0" text="Raça" />
-            <TableColumn fx:id="colPorte" prefWidth="75.0" text="Porte" />
+            <TableColumn fx:id="colRaca" minWidth="5.0" prefWidth="58.0" text="Raça:" />
+            <TableColumn fx:id="colPorte" prefWidth="75.0" text="Porte:" />
             <TableColumn fx:id="colSexo" prefWidth="93.0" text="Sexo:" />
             <TableColumn fx:id="colObservacao" prefWidth="230.0" text="Observação:" />
         </columns>

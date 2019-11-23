@@ -20,7 +20,7 @@ public class Cachorro{
    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer  idCachorro;
-    private String raça;
+    private String raca;
     private String nome;
     private String porte;
     private String sexo;
@@ -28,16 +28,15 @@ public class Cachorro{
 
     //jpa
     public Cachorro(){}
-    
-    
-    public Cachorro (String nome, String raça, String obs ){
-        this.setNome(nome);
-        this.setRaça(raça);
-        this.setObservacao(obs);
-        
-       
-        
+
+    public Cachorro(String raca, String nome, String porte, String sexo, String observacao) {
+        this.raca = raca;
+        this.nome = nome;
+        this.porte = porte;
+        this.sexo = sexo;
+        this.observacao = observacao;
     }
+    
             
     @ManyToMany
     private List<Cliente> dono =new ArrayList<Cliente>();
@@ -58,12 +57,12 @@ public class Cachorro{
         this.idCachorro = idCachorro;
     }
 
-    public String getRaça() {
-        return raça;
+    public String getRaca() {
+        return raca;
     }
 
-    public void setRaça(String raça) {
-        this.raça = raça;
+    public void setRaca(String raca) {
+        this.raca = raca;
     }
 
     public String getNome() {

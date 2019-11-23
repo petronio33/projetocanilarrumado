@@ -127,6 +127,10 @@ public class Cliente {
         }
         return true;
     }
+    
+    public String toString(){
+        return nome;
+    }
  
 }
   

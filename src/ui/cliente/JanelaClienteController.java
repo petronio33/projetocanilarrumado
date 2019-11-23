@@ -4,7 +4,6 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import dados.entidades.Cliente;
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -122,7 +121,7 @@ public class JanelaClienteController implements Initializable {
                 selecionado.setBairro(textFieldBairro.getText());
                 selecionado.setCidade(textFieldCidade.getText());
                 selecionado.setCpf(textFieldCPF.getText());
-                datePickerNascimento.getValue();
+                selecionado.setData_nascimento(datePickerNascimento.getValue());
                 
                 //Mandando pra camada de serviço salvar as alterações
                 servico.editar(selecionado);

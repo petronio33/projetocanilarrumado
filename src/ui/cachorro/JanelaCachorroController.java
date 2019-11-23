@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import dados.entidades.Cachorro;
+import dados.entidades.Cliente;
 import java.net.URL;
 import java.util.List;
 import java.util.Optional;
@@ -57,16 +58,24 @@ public class JanelaCachorroController implements Initializable {
     @FXML
     private TableColumn colObservacao;
     @FXML
-    private JFXComboBox<?> comboBoxDono;
+    private JFXComboBox<Cliente> comboBoxDono;
     @FXML
-    private JFXComboBox<?> comboBoxSexo;
+    private JFXComboBox comboBoxSexo;
     @FXML
-    private JFXComboBox<?> comboBoxPorte;
+    private JFXComboBox comboBoxPorte;
 
     private CachorroServico servico = new CachorroServico();
 
     private ObservableList<Cachorro> dados
             = FXCollections.observableArrayList();
+    
+    private ObservableList<String> sexo
+            = FXCollections.observableArrayList
+        ("Feminino","Masculino");
+   
+    private ObservableList<String> porte
+            = FXCollections.observableArrayList
+        ("Pequeno","Médio","Grande");
 
     private Cachorro selecionado;
     @FXML
@@ -92,15 +101,18 @@ public class JanelaCachorroController implements Initializable {
         // TODO
         configurarTabela();
         listarCachorroTabela();
+        comboBoxPorte.setItems(porte);
+        comboBoxSexo.setItems(sexo);
     }
 
     @FXML
     private void salvar(ActionEvent event) {
 
         if (textFieldId.getText().isEmpty()) {
-            Cachorro c = new Cachorro(
+            Cachorro c = new Cachorro(textFieldRaca.getText(),
                     textFieldNome.getText(),
-                    textFieldRaca.getText(),
+                    comboBoxPorte.getValue().toString(),
+                    comboBoxSexo.getValue().toString(),
                     textFieldObservacao.getText());
 
             servico.salvar(c);
@@ -117,8 +129,11 @@ public class JanelaCachorroController implements Initializable {
             if (btn.get() == ButtonType.OK) {
                 
                 selecionado.setNome(textFieldNome.getText());
-                selecionado.setRaça(textFieldRaca.getText());
+                selecionado.setRaca(textFieldRaca.getText());
                 selecionado.setObservacao(textFieldObservacao.getText());
+                selecionado.setPorte(comboBoxPorte.getValue().toString());
+                selecionado.setSexo(comboBoxSexo.getValue().toString());
+                
 
                 servico.editar(selecionado);
 
@@ -139,8 +154,13 @@ public class JanelaCachorroController implements Initializable {
             textFieldId.setText(
                     String.valueOf(selecionado.getIdCachorro()));
             textFieldNome.setText(selecionado.getNome());
-            textFieldRaca.setText(selecionado.getRaça());
+            textFieldRaca.setText(selecionado.getRaca());
             textFieldObservacao.setText(selecionado.getObservacao());
+            comboBoxPorte.setValue(selecionado.getPorte().toString());
+            comboBoxSexo.setValue(selecionado.getSexo().toString());
+            
+            
+            
             ///listarCachorroTabela();
         } else {
             mensagemDeErro("Selecione um Cachorro!");
@@ -185,9 +205,13 @@ public class JanelaCachorroController implements Initializable {
         colNome.setCellValueFactory(
                 new PropertyValueFactory("nome"));
         colRaca.setCellValueFactory(
-                new PropertyValueFactory("raça"));
+                new PropertyValueFactory("raca"));
         colObservacao.setCellValueFactory(
                 new PropertyValueFactory("observacao"));
+        colPorte.setCellValueFactory(
+                new PropertyValueFactory("porte"));
+        colSexo.setCellValueFactory(
+                new PropertyValueFactory("sexo"));
     }
 
     private void listarCachorroTabela() {

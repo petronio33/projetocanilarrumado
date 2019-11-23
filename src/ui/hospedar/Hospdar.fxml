@@ -10,7 +10,7 @@
    <children>
       <JFXTextField focusColor="#5d2793" layoutX="46.0" layoutY="41.0" promptText="Cachorro" />
       <JFXTextField focusColor="#5d2793" layoutX="304.0" layoutY="41.0" promptText="Cliente" />
-      <JFXTextField focusColor="#5d2793" layoutX="304.0" layoutY="85.0" promptText="Raça" />
+      <JFXTextField focusColor="#5d2793" layoutX="304.0" layoutY="85.0" promptText="raca" />
       <JFXTextField focusColor="#5d2793" layoutX="46.0" layoutY="85.0" promptText="Endereço" />
       <JFXTextField focusColor="#5d2793" layoutX="46.0" layoutY="128.0" promptText="Bairro" />
       <JFXTextField focusColor="#5d2793" layoutX="46.0" layoutY="175.0" promptText="Cidade" />
