@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="ui.adocao.JanelaAdocaoController">
+   <children>
+      <JFXComboBox layoutX="54.0" layoutY="28.0" prefHeight="31.0" prefWidth="157.0" />
+      <JFXComboBox layoutX="263.0" layoutY="28.0" prefHeight="31.0" prefWidth="172.0" />
+      <JFXDatePicker layoutX="514.0" layoutY="34.0" />
+      <TableView layoutX="14.0" layoutY="186.0" prefHeight="400.0" prefWidth="779.0">
+        <columns>
+          <TableColumn prefWidth="206.0" text="C1" />
+          <TableColumn prefWidth="287.0" text="C2" />
+            <TableColumn minWidth="0.0" prefWidth="192.0" text="C2" />
+        </columns>
+      </TableView>
+      <JFXButton layoutX="548.0" layoutY="131.0" prefHeight="39.0" prefWidth="141.0" text="Adotar" />
+      <JFXButton layoutX="407.0" layoutY="131.0" prefHeight="39.0" prefWidth="141.0" text="Editar" />
+      <JFXTextField labelFloat="true" layoutX="48.0" layoutY="119.0" promptText="Pesquisar Cahorro:" />
+      <JFXButton layoutX="211.0" layoutY="119.0" text="Pesquisar" />
+      <TableView layoutX="24.0" layoutY="196.0" prefHeight="400.0" prefWidth="779.0">
+         <columns>
+            <TableColumn prefWidth="206.0" text="C1" />
+            <TableColumn prefWidth="287.0" text="C2" />
+            <TableColumn minWidth="0.0" prefWidth="192.0" text="C2" />
+         </columns>
+      </TableView>
+   </children>
+</AnchorPane>

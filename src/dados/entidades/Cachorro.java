@@ -51,8 +51,6 @@ public class Cachorro{
         this.dono = dono;
     }
 
-
-
     public Integer getIdCachorro() {
         return idCachorro;
     }
