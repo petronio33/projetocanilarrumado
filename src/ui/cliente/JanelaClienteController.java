@@ -119,6 +119,8 @@ public class JanelaClienteController implements Initializable {
                 //atualizar o meu cliente
                 selecionado.setNome(textFieldNome.getText());
                 selecionado.setBairro(textFieldBairro.getText());
+                selecionado.setEndereco(textFieldEndereco.getText());
+                selecionado.setTelefone(textFieldTelefone.getText());
                 selecionado.setCidade(textFieldCidade.getText());
                 selecionado.setCpf(textFieldCPF.getText());
                 selecionado.setData_nascimento(datePickerNascimento.getValue());
@@ -234,8 +236,8 @@ public class JanelaClienteController implements Initializable {
             textFieldNome.setText( selecionado.getNome() );
             textFieldBairro.setText(selecionado.getBairro());
             textFieldCPF.setText(selecionado.getCpf());
-            textFieldEndereco.setText(selecionado.getEndereco()
-                    +selecionado.getCidade());
+            textFieldCidade.setText(selecionado.getCidade());
+            textFieldEndereco.setText(selecionado.getEndereco());
             textFieldTelefone.setText(selecionado.getTelefone());
         }else{ //não tem cliente selecionado na tabela
             mensagemErro("Selecione um cliente!");
