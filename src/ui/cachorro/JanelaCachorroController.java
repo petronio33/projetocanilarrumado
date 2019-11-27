@@ -25,6 +25,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import servicos.CachorroServico;
+import servicos.ClienteServico;
 
 /**
  * FXML Controller class
@@ -76,6 +77,8 @@ public class JanelaCachorroController implements Initializable {
     private ObservableList<String> porte
             = FXCollections.observableArrayList
         ("Pequeno","Médio","Grande");
+    
+     private ClienteServico clienteServico = new ClienteServico();
 
     private Cachorro selecionado;
     @FXML
@@ -103,6 +106,7 @@ public class JanelaCachorroController implements Initializable {
         listarCachorroTabela();
         comboBoxPorte.setItems(porte);
         comboBoxSexo.setItems(sexo);
+        listarCliente();
     }
 
     @FXML
@@ -113,7 +117,9 @@ public class JanelaCachorroController implements Initializable {
                     textFieldNome.getText(),
                     comboBoxPorte.getValue().toString(),
                     comboBoxSexo.getValue().toString(),
-                    textFieldObservacao.getText());
+                    textFieldObservacao.getText(),
+                    comboBoxDono.getValue());
+                    
 
             servico.salvar(c);
 
@@ -133,7 +139,7 @@ public class JanelaCachorroController implements Initializable {
                 selecionado.setObservacao(textFieldObservacao.getText());
                 selecionado.setPorte(comboBoxPorte.getValue().toString());
                 selecionado.setSexo(comboBoxSexo.getValue().toString());
-                
+                selecionado.setDono(comboBoxDono.getValue());
 
                 servico.editar(selecionado);
 
@@ -158,6 +164,7 @@ public class JanelaCachorroController implements Initializable {
             textFieldObservacao.setText(selecionado.getObservacao());
             comboBoxPorte.setValue(selecionado.getPorte().toString());
             comboBoxSexo.setValue(selecionado.getSexo().toString());
+            comboBoxDono.setValue(selecionado.getDono());
             
             
             
@@ -212,6 +219,8 @@ public class JanelaCachorroController implements Initializable {
                 new PropertyValueFactory("porte"));
         colSexo.setCellValueFactory(
                 new PropertyValueFactory("sexo"));
+        colDono.setCellValueFactory(
+                new PropertyValueFactory("dono"));
     }
 
     private void listarCachorroTabela() {
@@ -242,4 +251,10 @@ public class JanelaCachorroController implements Initializable {
 
         tabela.setItems(dados);
     }
+   private void listarCliente(){
+       List<Cliente> clientes = clienteServico.listar();
+       
+       
+       comboBoxDono.setItems(FXCollections.observableArrayList(clientes));
+   }
 }

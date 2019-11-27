@@ -29,25 +29,29 @@ public class Cachorro{
     //jpa
     public Cachorro(){}
 
-    public Cachorro(String raca, String nome, String porte, String sexo, String observacao) {
+    public Cachorro(String raca, String nome, String porte, String sexo, String observacao, Cliente dono) {
         this.raca = raca;
         this.nome = nome;
         this.porte = porte;
         this.sexo = sexo;
         this.observacao = observacao;
+        this.dono = dono;
     }
-    
-            
-    @ManyToMany
-    private List<Cliente> dono =new ArrayList<Cliente>();
 
-    public List<Cliente> getDono() {
+  
+            
+    @ManyToOne(optional=false)
+    private Cliente dono ;
+
+    public Cliente getDono() {
         return dono;
     }
 
-    public void setDono(List<Cliente> dono) {
+    public void setDono(Cliente dono) {
         this.dono = dono;
     }
+
+
 
     public Integer getIdCachorro() {
         return idCachorro;

@@ -7,8 +7,6 @@
     <!-- Aqui devem ser listadas todas as entidades criadas -->
     <class>dados.entidades.Cachorro</class>
     <class>dados.entidades.Cliente</class>
-    <class>dados.entidades.FichaMedica</class>
-    <class>dados.entidades.Hospedagem</class>
     <properties>
       <!-- Driver de Acesso ao BD -->
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>

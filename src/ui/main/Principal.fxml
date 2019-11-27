@@ -24,7 +24,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#abrirCadastroCliente" prefHeight="100.0" prefWidth="200.0" text="Cadastro de Cliente" textFill="#49035e" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#abrirCadastroCliente" prefHeight="100.0" prefWidth="200.0" text="Cliente" textFill="#49035e" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Arial Bold" size="16.0" />
                      </font>
@@ -32,7 +32,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#abrirCadastroCachorro" prefHeight="100.0" prefWidth="200.0" text="Cadastro de Cachorro" textFill="#49035e" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#abrirCadastroCachorro" prefHeight="100.0" prefWidth="200.0" text="Cachorro" textFill="#49035e" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Arial Bold" size="16.0" />
                      </font>
@@ -40,7 +40,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#abrirCadastroHospedagem" prefHeight="100.0" prefWidth="200.0" text="Hopedagem" textFill="#49035e" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#abrirAdocao" prefHeight="100.0" prefWidth="200.0" text="Adoção" textFill="#49035e" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Arial Bold" size="16.0" />
                      </font>
@@ -48,7 +48,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#AbrirVisualizar" prefHeight="100.0" prefWidth="200.0" text="Visualizar" textFill="#49035e" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+                  <Button alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#AbrirFichamedica" prefHeight="100.0" prefWidth="200.0" text="Ficha Médica" textFill="#49035e" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <font>
                         <Font name="Arial Bold" size="16.0" />
                      </font>
