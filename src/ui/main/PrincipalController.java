@@ -84,11 +84,11 @@ public class PrincipalController implements Initializable {
     }
 
     @FXML
-    private void abrirCadastroHospedagem(ActionEvent event) {
+    private void abrirAdocao(ActionEvent event) {
     }
 
     @FXML
-    private void AbrirVisualizar(ActionEvent event) {
+    private void AbrirFichamedica(ActionEvent event) {
     }
     
     
