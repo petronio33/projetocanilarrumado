@@ -42,7 +42,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </JFXButton>
-      <JFXComboBox fx:id="comboBoxDono" layoutX="368.0" layoutY="21.0" prefHeight="25.0" prefWidth="204.0" promptText="Dono:" />
+      <JFXComboBox fx:id="comboBoxDono" layoutX="368.0" layoutY="21.0" prefHeight="25.0" prefWidth="204.0" promptText="Adotar:" />
       <JFXComboBox fx:id="comboBoxSexo" layoutX="325.0" layoutY="68.0" prefHeight="25.0" prefWidth="151.0" promptText="Sexo:" />
       <JFXComboBox fx:id="comboBoxPorte" layoutX="156.0" layoutY="68.0" prefHeight="25.0" prefWidth="151.0" promptText="Porte:" />
       <JFXButton fx:id="botaopesquisar" layoutX="171.0" layoutY="117.0" onAction="#pesquisar" text="Pesquisar" />

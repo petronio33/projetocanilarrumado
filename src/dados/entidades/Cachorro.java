@@ -40,7 +40,7 @@ public class Cachorro{
 
   
             
-    @ManyToOne(optional=false)
+    @ManyToOne(optional=true)
     private Cliente dono ;
 
     public Cliente getDono() {
