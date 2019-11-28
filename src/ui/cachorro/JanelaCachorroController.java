@@ -85,6 +85,9 @@ public class JanelaCachorroController implements Initializable {
     private JFXButton botaopesquisar;
     @FXML
     private JFXTextField pesquisanome;
+    
+    private String a =(" ");
+    
 
     /**
      * Initializes the controller class.
@@ -147,10 +150,16 @@ public class JanelaCachorroController implements Initializable {
                 listarCachorroTabela();
 
             }
+       
         }
         textFieldNome.setText(" ");
         textFieldRaca.setText(" ");
         textFieldObservacao.setText(" ");
+        textFieldRaca.setText(" ");
+        textFieldId.setText(" ");
+        comboBoxDono.setValue(null);
+        comboBoxPorte.setValue(a);
+        comboBoxSexo.setValue(a);
     }
 
     @FXML
@@ -162,8 +171,8 @@ public class JanelaCachorroController implements Initializable {
             textFieldNome.setText(selecionado.getNome());
             textFieldRaca.setText(selecionado.getRaca());
             textFieldObservacao.setText(selecionado.getObservacao());
-            comboBoxPorte.setValue(selecionado.getPorte().toString());
-            comboBoxSexo.setValue(selecionado.getSexo().toString());
+            comboBoxPorte.setValue(selecionado.getPorte());
+            comboBoxSexo.setValue(selecionado.getSexo());
             comboBoxDono.setValue(selecionado.getDono());
             
             
@@ -173,7 +182,7 @@ public class JanelaCachorroController implements Initializable {
             mensagemDeErro("Selecione um Cachorro!");
 
         }
-
+       
     }
 
     @FXML
@@ -193,6 +202,11 @@ public class JanelaCachorroController implements Initializable {
 
             }
             listarCachorroTabela();
+        textFieldNome.setText(" ");
+        textFieldRaca.setText(" ");
+        textFieldObservacao.setText(" ");
+        textFieldRaca.setText(" ");
+        textFieldId.setText(" ");
         }
 
     }
@@ -250,6 +264,7 @@ public class JanelaCachorroController implements Initializable {
         dados = FXCollections.observableArrayList(cachorros);
 
         tabela.setItems(dados);
+        dados.clear();
     }
    private void listarCliente(){
        List<Cliente> clientes = clienteServico.listar();

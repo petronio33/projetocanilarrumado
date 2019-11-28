@@ -136,8 +136,16 @@ public class JanelaClienteController implements Initializable {
             }
     }
     //Limpando o form
-        textFieldId.setText("");
-        textFieldNome.setText("");
+        textFieldId.setText(" ");
+        textFieldNome.setText(" ");
+        textFieldBairro.setText(" ");
+        textFieldCPF.setText(" ");
+        textFieldCidade.setText(" ");
+        textFieldTelefone.setText(" ");
+        textFieldId.setText(" ");
+        textFieldEndereco.setText(" ");
+        datePickerNascimento.setValue(null);
+                
     }
     public void mensagemSucesso(String m) {
         Alert alerta = new Alert(Alert.AlertType.INFORMATION);
